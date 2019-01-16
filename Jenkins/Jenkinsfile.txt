@@ -1,0 +1,17 @@
+node{
+
+checkout scm;
+def prop=readProperties  file: 'Properties/properties.pipeline'
+
+stage('util clone')
+
+{
+def giturl=prop.GIT_URL
+echo "${giturl}"
+git url:"${giturl}"
+echo "cloned successfully"
+}
+
+
+
+}
