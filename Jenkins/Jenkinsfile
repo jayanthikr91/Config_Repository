@@ -6,6 +6,7 @@ def prop=readProperties  file: 'Properties/pipeline.properties'
 stage('util clone')
 
 {
+sh 'rm -rf ../'+jobName+'/*'  
 sh prop.UTIL_REPO_URL
 echo "cloned successfully"
 }
