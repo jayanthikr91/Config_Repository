@@ -8,7 +8,7 @@ stage('util clone')
 {
 
 deleteDir()
-sh prop.UTIL_REPO_URL
+sh prop.GIT_CLONE_CMD+prop.UTIL_REPO_URL
 echo "cloned successfully"
 def utilrepo=load prop.GROOVY_FILE_LOC
 utilrepo.execute(prop);  
