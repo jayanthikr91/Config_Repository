@@ -1,6 +1,6 @@
 node{
 
-sh "git url: https://github.com/jayanthikr91/Config_Repository.git"
+git "https://github.com/jayanthikr91/Config_Repository.git"
 def prop=readProperties  file: 'Properties/pipeline.properties'
 
 stage('util clone')
