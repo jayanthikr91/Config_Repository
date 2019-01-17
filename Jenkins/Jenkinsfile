@@ -10,7 +10,7 @@ stage('util clone')
 deleteDir()
 sh prop.UTIL_REPO_URL
 echo "cloned successfully"
-def utilrepo=load "dev-cicd.groovy"
+def utilrepo=load "Util_Repository/dev_cicd.groovy"
 utilrepo.execute();  
 }
 }
