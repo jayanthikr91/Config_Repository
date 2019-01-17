@@ -6,9 +6,7 @@ def prop=readProperties  file: 'Properties/pipeline.properties'
 stage('util clone')
 
 {
-def giturl=prop.UTIL_REPO_URL
-echo "${giturl}"
-git url:"${giturl}"
+sh prop.UTIL_REPO_URL
 echo "cloned successfully"
 }
 }
