@@ -6,7 +6,8 @@ def prop=readProperties  file: 'Properties/pipeline.properties'
 stage('util clone')
 
 {
-sh "rm -rf ../${JOB_NAME}/*/"
+
+deleteDir()
 sh prop.UTIL_REPO_URL
 echo "cloned successfully"
 utilrepo=load "Util_Repository/dev-cicd.groovy"
