@@ -2,17 +2,17 @@ node{
 
 checkout scm;
 def prop=readProperties  file: 'Properties/pipeline.properties'
-def utilrepo=load prop.JAVA_GROOVY_FILE_LOC
-def commonrepo=load prop.COMMON_GROOVY_FILE_LOC
+
   
 stage('clear workspace')
 {
-  commonrepo.clearWorkspace()
+  deleteDir()
 }  
 stage('util clone')
 {
 sh prop.GIT_CLONE_CMD+prop.UTIL_REPO_URL
 echo "cloned successfully"
+def utilrepo=load prop.JAVA_GROOVY_FILE_LOC
 utilrepo.execute(prop);  
 }
 }
