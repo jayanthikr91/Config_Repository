@@ -14,6 +14,6 @@ sh prop.GIT_CLONE_CMD+" "+prop.UTIL_REPO_URL
 echo "cloned successfully"
 utilrepo=load prop.JAVA_GROOVY_FILE_LOC
 commonutility=load prop.COMMON_GROOVY_FILE_LOC
-utilrepo.execute(prop);  
+utilrepo.execute();  
 }
 }
