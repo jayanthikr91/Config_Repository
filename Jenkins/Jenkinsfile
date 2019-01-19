@@ -3,7 +3,7 @@ node{
 checkout scm;
 prop=readProperties  file: 'Properties/pipeline.properties'
 
-  
+try{  
 stage('clear workspace')
 {
   deleteDir()
@@ -15,5 +15,15 @@ echo "cloned successfully"
 utilrepo=load prop.JAVA_GROOVY_FILE_LOC
 commonutility=load prop.COMMON_GROOVY_FILE_LOC
 utilrepo.execute();  
+
 }
+stage('success mail'){
+  commonutility.sendSuccessMail();
+  }  
+}
+  catch(Exception e){
+   stage('failure mail'){  
+  commonutility.sendFailureMail(e);
+    } 
+  }
 }
