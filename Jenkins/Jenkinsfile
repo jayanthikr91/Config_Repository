@@ -1,7 +1,7 @@
 node{
 
 checkout scm;
-def prop=readProperties  file: 'Properties/pipeline.properties'
+prop=readProperties  file: 'Properties/pipeline.properties'
 
   
 stage('clear workspace')
@@ -10,11 +10,10 @@ stage('clear workspace')
 }  
 stage('util clone')
 {
-sh prop.UTIL_REPO_URL
+sh prop.GIT_CLONE_CMD+" "+prop.UTIL_REPO_URL
 echo "cloned successfully"
 utilrepo=load prop.JAVA_GROOVY_FILE_LOC
 commonutility=load prop.COMMON_GROOVY_FILE_LOC
-  echo "${commonutility}"
 utilrepo.execute(prop);  
 }
 }
