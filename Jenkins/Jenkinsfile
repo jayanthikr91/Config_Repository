@@ -21,9 +21,9 @@ stage('success mail'){
   commonutility.sendSuccessMail();
   }  
 }
-  catch(e){
-   stage('failure mail'){  
-  commonutility.sendFailureMail(e);
-    } 
+  catch(error){
+  stage('failure mail'){    
+   commonutility.sendFailureMail(error);
+  }
   }
 }
